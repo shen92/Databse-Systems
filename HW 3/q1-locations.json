@@ -1,0 +1,15 @@
+{
+    "Accounting Library": ["ACC", 34.019191, -118.285532],
+    "Architecture & Fine Arts Library": ["WAH", 34.019313, -118.287926],
+    "Cinematic Arts Library": ["DML", 34.019960, -118.283554],
+    "Gaughan & Tiberti Library": ["JFF", 34.018697, -118.282412],
+    "Gerontology Library Services": ["GER", 34.020474, -118.290477],
+    "Grand Avenue Library": ["CAL", 34.019152, -118.276394],
+    "Hoose Library of Philosophy": ["MHP", 34.018677, -118.286602],
+    "Law Library": ["LAW", 34.018838, -118.284763],
+    "Leavey Library": ["LVL", 34.021818, -118.282891],
+    "Social Work Randall Information Center": ["SWC", 34.022540, -118.282330],
+    "Science & Engineering Library": ["SSL", 34.019573, -118.288755],
+    "Wilson Dental Library": ["DEN", 34.023943, -118.286199],
+    "Tommy Trojan": ["TT", 34.020559, -118.285447]
+}

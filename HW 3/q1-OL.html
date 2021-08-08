@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OL</title>
+    <script src="https://openlayers.org/api/OpenLayers.js"></script>
+    <style>
+      #map {
+        width: 800px;
+        height: 800px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+    <script>
+      // here's how to plot points on a map, using OpenLayers:
+      // [this is code I mildly modified, from an existing source]
+      function initMap() {
+        map = new OpenLayers.Map("map");
+        basemap = new OpenLayers.Layer.OSM("Simple OSM Map");
+        map.addLayer(basemap);
+        markers = new OpenLayers.Layer.Markers("Markers");
+        map.addLayer(markers);
+      } // initMap()
+
+      function addMarker(latitude, longitude) {
+        var lonLat = new OpenLayers.LonLat(longitude, latitude).transform(
+          new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+          map.getProjectionObject() // to Spherical Mercator Projection
+        );
+        var point = new OpenLayers.Marker(lonLat);
+        markers.addMarker(point);
+        map.setCenter(lonLat, 8); // second arg is zoom level
+        //console.log(latitude + ", " + longitude);
+      } // addMarker()
+
+      // load and setup map layers
+      initMap();
+
+      // here's how to plot just ONE [lat,long] on the map!
+      const locations = {
+        "Accounting Library": ["ACC", 34.019191, -118.285532],
+        "Architecture & Fine Arts Library": ["WAH", 34.019313, -118.287926],
+        "Cinematic Arts Library": ["DML", 34.01996, -118.283554],
+        "Gaughan & Tiberti Library": ["JFF", 34.018697, -118.282412],
+        "Gerontology Library Services": ["GER", 34.020474, -118.290477],
+        "Grand Avenue Library": ["CAL", 34.019152, -118.276394],
+        "Hoose Library of Philosophy": ["MHP", 34.018677, -118.286602],
+        "Law Library": ["LAW", 34.018838, -118.284763],
+        "Leavey Library": ["LVL", 34.021818, -118.282891],
+        "Social Work Randall Information Center": ["SWC", 34.02254, -118.28233],
+        "Science & Engineering Library": ["SSL", 34.019573, -118.288755],
+        "Wilson Dental Library": ["DEN", 34.023943, -118.286199],
+        "Tommy Trojan": ["TT", 34.020559, -118.285447],
+      };
+
+      for (const location of Object.entries(locations)) {
+        addMarker(location[1][1], location[1][2]);
+      }
+    </script>
+  </body>
+</html>
